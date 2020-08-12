@@ -10,7 +10,7 @@
 | nickname     | string | null: false |
 | email        | string | null: false |
 | password     | string | null: false |
-| birthday     | integer| null: false |
+| birthday     | date   | null: false |
 ### Association
 - has_many :items
 - has_many :comments
@@ -32,7 +32,7 @@
 | shipping_date        | integer   | null: false                   |
 | user                 | references| null: false, foreign_key: true|
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_many :comments
 - has_one :buyer
 
@@ -45,8 +45,8 @@
 | user          | references | null: false, foreign_key: true |
 | item          | references | null: false, foreign_key: true |
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 
 
 
@@ -55,10 +55,9 @@
 | -----------------| ---------- | -------------------------------|
 | user             | references | null: false, foreign_key: true |
 | item             | references | null: false, foreign_key: true |
-| shipping         | references | null: false, foreign_key: true |
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 - has_one :shipping
 
 
@@ -68,7 +67,7 @@
 | -----------| ----------| -------------------------------|
 | postal     | string    | null: false                    |
 | prefectures| integer   | null: false                    |
-| city       | string    | null: false                    |
+| city       | string    |                                |
 | address    | string    | null: false                    | 
 | building   | string    | null: false                    |
 | tel        | string    | null: false                    |
