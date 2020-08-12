@@ -10,10 +10,11 @@
 | nickname     | string | null: false |
 | email        | string | null: false |
 | password     | string | null: false |
+| birthday     | integer| null: false |
 ### Association
 - has_many :items
 - has_many :comments
-- has_one :buyer
+- has_many :buyer
 
 
 
@@ -53,6 +54,8 @@
 | Column           | Type       | Options                        |
 | -----------------| ---------- | -------------------------------|
 | user             | references | null: false, foreign_key: true |
+| item             | references | null: false, foreign_key: true |
+| shipping         | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :users
 - belongs_to :items
@@ -68,7 +71,7 @@
 | city       | string    | null: false                    |
 | address    | string    | null: false                    | 
 | building   | string    | null: false                    |
-| tel        | integer   | null: false                    |
+| tel        | string    | null: false                    |
 | buyer      | references| null: false, foreign_key: true |
 ### Association
 - belongs_to :buyer
