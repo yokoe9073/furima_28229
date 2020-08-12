@@ -20,7 +20,7 @@
 ## items テーブル
 | Column               | Type      | Options                       |
 | ---------------------| ----------| ------------------------------|
-| item_name            | string    | null: false                   |
+| name                 | string    | null: false                   |
 | image                | string    | null: false                   |
 | category             | integer   | null: false                   |
 | details              | string    | null: false                   |
@@ -53,7 +53,6 @@
 | Column           | Type       | Options                        |
 | -----------------| ---------- | -------------------------------|
 | user             | references | null: false, foreign_key: true |
-| card_info        | string     | null: false                    |
 ### Association
 - belongs_to :users
 - belongs_to :items
