@@ -3,8 +3,8 @@
 ## users テーブル
 | Column       | Type   | Options     |
 | -------------| ------ | ----------- |
-| first_name   | string | null: false |
 | last_name    | string | null: false |
+| first_name   | string | null: false |
 | furi_first_n | string | null: false |
 | furi_last_n  | string | null: false |
 | nickname     | string | null: false |
