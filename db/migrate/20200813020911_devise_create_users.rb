@@ -9,9 +9,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :furi_first_n, null:false
       t.string :furi_last_n, null:false
       t.string :nickname, null:false
-      t.string :email, null:false { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+      t.string :email, null:false 
       t.date :birthday, null:false
-      t.string :encrypted_password, format: { with: /\A(?=.*?[a-z])(?=*?[\d])[a-z\d]{6,}+\z/i}
+      t.string :encrypted_password,  
 
       ## Recoverable
       t.string   :reset_password_token
