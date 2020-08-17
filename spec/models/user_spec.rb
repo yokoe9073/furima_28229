@@ -88,7 +88,7 @@ describe User do
       it "ユーザー本名の名字が半角なら登録できない"
         @user.first_name ="ﾌﾘﾏ"
         @user.valid?
-        expect(@user.errors.full_messagas).to include("first_name can't be blank")  
+        expect(@user.errors.full_messagas).to include("first_name can't be half-width")  
       end
       it "ユーザー本名の名前が空なら登録できない"
         @user.first_name = ""
@@ -98,7 +98,7 @@ describe User do
       it "ユーザー本名の名前が半角なら登録できない"
         @user.first_name ="ﾀﾛｳ"
         @user.valid?
-        expect(@user.errors.full_messagas).to include("last_name can't be blank")   
+        expect(@user.errors.full_messagas).to include("last_name can't be half-width")   
       end
       it "ユーザー本名の名字フリガナが空なら登録できない"
         @user.furi_first_n = ""
@@ -108,7 +108,7 @@ describe User do
       it "ユーザー本名の名字フリガナが全角なら登録できない"
         @user.furi_first_n ="フリマ"
         @user.valid?
-        expect(@user.errors.full_messagas).to include("furi_first_n can't be blank")
+        expect(@user.errors.full_messagas).to include("furi_first_n can't be Full-width")
       end
       it "ユーザー本名の名前フリガナが空なら登録できない"
         @user.furi_last_n = ""
@@ -118,7 +118,7 @@ describe User do
       it "ユーザー本名の名前フリガナが全角なら登録できない"
         @user.furi_last_n ="タロウ"
         @user.valid?
-        expect(@user.errors.full_messagas).to include("furi_last_n can't be blank")
+        expect(@user.errors.full_messagas).to include("furi_last_n can't be Full-width")
       end
       it "生年月日が空なら登録できない"
         @user.birthday = ""
