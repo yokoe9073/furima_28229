@@ -13,6 +13,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.references :user, foreign_key: true 
       t.integer :category_id
       t.integer :status_id
+      t.integer :delivery_fee_id
       t.timestamps
       
     end
