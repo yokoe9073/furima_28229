@@ -12,6 +12,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :shipping_date
       t.references :user, foreign_key: true 
       t.integer :category_id
+      t.integer :status_id
       t.timestamps
       
     end
