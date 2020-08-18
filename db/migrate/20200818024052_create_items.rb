@@ -14,6 +14,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :category_id
       t.integer :status_id
       t.integer :delivery_fee_id
+      t.integer :exhibitor_prefectures_id
+      t.integer :shipping_date_id
       t.timestamps
       
     end
