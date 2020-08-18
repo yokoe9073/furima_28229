@@ -18,23 +18,24 @@ describe User do
         @user.password_confirmation = "123abc"
         expect(@user).to be_valid
       end
-      it "ユーザー本名の名字が全角であれば登録できる"
+      it "ユーザー本名の名字が全角であれば登録できる" do
         @user.first_name = "フリマ"
         expect(@user).to be_valid     
       end
-      it "ユーザー本名の名前が全角であれば登録できる"
+      it "ユーザー本名の名前が全角であれば登録できる" do
         @user.first_name = "タロウ"
         expect(@user).to be_valid
       end
-      it "ユーザー本名名字のフリガナが全角カタカナであれば登録できる"
+      it "ユーザー本名名字のフリガナが全角カタカナであれば登録できる" do
         @user.first_name = "フリマ"
         expect(@user).to be_valid
       end
-      it "ユーザー本名名前のフリガナが全角カタカナであれば登録できる"
+      it "ユーザー本名名前のフリガナが全角カタカナであれば登録できる" do
         @user.first_name = "タロウ"
         expect(@user).to be_valid
       end
-
+    end
+  end
     context '新規登録がうまくいかないとき' do
       it "nicknameが空だと登録できない" do
         @user.nickname = ""
@@ -80,51 +81,50 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end  
-      it "ユーザー本名の名字が空なら登録できない"
+      it "ユーザー本名の名字が空なら登録できない" do
         @user.first_name = ""
         @user.valid?
         expect(@user.errors.full_messagas).to include("first_name can't be blank")  
       end
-      it "ユーザー本名の名字が半角なら登録できない"
+      it "ユーザー本名の名字が半角なら登録できない" do
         @user.first_name ="ﾌﾘﾏ"
         @user.valid?
         expect(@user.errors.full_messagas).to include("first_name can't be half-width")  
       end
-      it "ユーザー本名の名前が空なら登録できない"
+      it "ユーザー本名の名前が空なら登録できない" do
         @user.first_name = ""
         @user.valid?
         expect(@user.errors.full_messagas).to include("last_name can't be blank")  
       end
-      it "ユーザー本名の名前が半角なら登録できない"
+      it "ユーザー本名の名前が半角なら登録できない" do
         @user.first_name ="ﾀﾛｳ"
         @user.valid?
         expect(@user.errors.full_messagas).to include("last_name can't be half-width")   
       end
-      it "ユーザー本名の名字フリガナが空なら登録できない"
+      it "ユーザー本名の名字フリガナが空なら登録できない" do
         @user.furi_first_n = ""
         @user.valid?
         expect(@user.errors.full_messagas).to include("furi_first_n can't be blank") 
       end
-      it "ユーザー本名の名字フリガナが全角なら登録できない"
+      it "ユーザー本名の名字フリガナが全角なら登録できない" do
         @user.furi_first_n ="フリマ"
         @user.valid?
         expect(@user.errors.full_messagas).to include("furi_first_n can't be Full-width")
       end
-      it "ユーザー本名の名前フリガナが空なら登録できない"
+      it "ユーザー本名の名前フリガナが空なら登録できない" do
         @user.furi_last_n = ""
         @user.valid?
         expect(@user.errors.full_messagas).to include("furi_last_n can't be blank")
       end
-      it "ユーザー本名の名前フリガナが全角なら登録できない"
+      it "ユーザー本名の名前フリガナが全角なら登録できない" do
         @user.furi_last_n ="タロウ"
         @user.valid?
         expect(@user.errors.full_messagas).to include("furi_last_n can't be Full-width")
       end
-      it "生年月日が空なら登録できない"
+      it "生年月日が空なら登録できない" do
         @user.birthday = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("birthday can't be blank")
       end
     end
-  end
 end
