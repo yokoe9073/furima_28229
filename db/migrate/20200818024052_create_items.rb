@@ -12,10 +12,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :shipping_date
       t.references :user, foreign_key: true 
       t.timestamps
-       ### Association
-      # - belongs_to :user
-      # - has_many :comments
-      # - has_one :buyer
+      
     end
   end
 end
