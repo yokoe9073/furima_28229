@@ -28,7 +28,7 @@
 | price                | integer   | null: false                   | 
 | status               | integer   | null: false                   |
 | delivery_fee         | integer   | null: false                   |
-| exhibitor_prefectures| integer   | null: false                   |
+| exhibitor_prefecture| integer   | null: false                   |
 | shipping_date        | integer   | null: false                   |
 | user                 | references| null: false, foreign_key: true|
 ### Association

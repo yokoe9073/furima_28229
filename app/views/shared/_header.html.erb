@@ -1,4 +1,4 @@
-<% CSS・・・assets/stylesheets/shared/header.css %>
+<%# CSS・・・assets/stylesheets/shared/header.css  %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
@@ -16,10 +16,17 @@
     </ul>
     <ul class='lists-right'>
       <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐させましょう%>
-      <li><%= link_to current_user.nickname, "edit_user_registration", class: "user-nickname" </li> %>
-      <li><%= link_to 'ログアウト', "destroy_user_session", method: :delete, class: "logout" </li> %>
-      <li><%= link_to 'ログイン', "user_session", class: "login" %></li>
-      <li><%= link_to '新規登録', "new_user_registration", class: "sign-up" %></li>
+       <% if user_signed_in? %>
+        <div class="user login">
+         <li><%= link_to current_user.nickname, "#", class: "user-nickname"  %></li>
+         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %></li>
+        </div>
+       <% else %>
+        <div class= "user logout">
+         <li><%= link_to 'ログイン', user_session_path, class: "login" %></li>
+         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        </div>     
+       <% end %>
       <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐させましょう%>
     </ul>
   </div>
