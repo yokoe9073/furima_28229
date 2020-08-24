@@ -1,4 +1,4 @@
-window.addEventListener('load',function(){
+function check(){
   const num = document.getElementById("item-price")
   num.addEventListener('change',function(){
   price = num.value
@@ -9,4 +9,5 @@ window.addEventListener('load',function(){
   tax.innerHTML = tax_num
   profit.innerHTML = profit_num
    })  
-})
+}
+setInterval(check, 1000);
