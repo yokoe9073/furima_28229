@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+　before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
   end
 
@@ -15,11 +15,6 @@ class ItemsController < ApplicationController
       render :new
     end  
   end
-
-  # def priced
-  #   item = Item.find(params[:id])
-  #   price = Item.find(params[:id])
-  #   rander json: { item: price }
 
   private
   def item_params
