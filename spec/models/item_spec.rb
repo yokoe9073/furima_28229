@@ -11,42 +11,6 @@ RSpec.describe Item, type: :model do
       it "商品画像があれば登録できる" do 
         expect(item).to be_valid
       end
-      it "商品名があれば登録できる" do
-        @item.name_id = ２
-        expect(item).to be_valid
-      end
-      it "商品説明があれば登録できる" do
-        @item.detail_id = ２
-        expect(item).to be_valid
-      end
-      it "カテゴリー欄があれば登録できる" do
-        @item.category_id = ２
-        expect(item).to be_valid
-      end
-      it "商品の状態欄が" do
-        @item.status_id = ２
-        expect(item).to be_valid
-      end
-      it "配送料の負担欄があれば登録できる" do
-        @item.delivery_fee_id = ２ 
-        expect(item).to be_valid
-      end
-      it "発送元の地域欄があれば登録できる" do
-        @item.exhibitor_prefecture_id = ２
-        expect(item).to be_valid
-      end
-      it "発送までの日数欄があれば登録できる" do
-        @item.shipping_date_id = ２
-        expect(item).to be_valid
-      end
-      it "価格欄があれば登録できる" do
-        @item.price= "500"
-        expect(item).to be_valid
-      end
-        it "価格が300〜9999999の範囲であれば登録できる" do
-        @item.price= "500"
-        expect(item).to be_valid
-      end
     end
     context '商品出品がうまくいかないとき' do
       it "出品画像が空だと登録できない" do
