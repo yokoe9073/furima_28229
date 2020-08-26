@@ -11,7 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :nickname, null:false
       t.string :email, null:false 
       t.date :birthday, null:false
-      t.string :encrypted_password,  
+      t.string :encrypted_password 
 
       ## Recoverable
       t.string   :reset_password_token
