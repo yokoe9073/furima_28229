@@ -6,7 +6,13 @@ class Item < ApplicationRecord
   belongs_to_active_hash :exhibitor_prefecture
   belongs_to_active_hash :shipping_date
   #ジャンルの選択が「--」の時は保存できないようにする
-  validates :name, :image, :detail, :category, :status, :delivery_fee, :exhibitor_prefecture, :shipping_date, :price, presence: true
+  
+  belongs_to :user
+  has_many :comments
+  has_one :buyer
+  has_one_attached :image 
+  
+  validates :name, :detail, :category, :status, :delivery_fee, :exhibitor_prefecture, :shipping_date, :price, presence: true
   
   validates :category_id, numericality: { other_than: 1 } 
   validates :status_id, numericality: { other_than: 1 } 
@@ -15,8 +21,5 @@ class Item < ApplicationRecord
   validates :shipping_date_id, numericality: { other_than: 1 } 
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
 
-   belongs_to :user
-   has_many :comments
-   has_one :buyer
-   
+  
 end
