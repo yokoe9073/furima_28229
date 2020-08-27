@@ -13,12 +13,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def show
-  end
-
   def new
     @item = Item.new
   end
