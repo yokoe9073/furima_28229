@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   has_many :comments
   has_one :buyer
   has_one_attached :image 
-  
+
   validates :name, :detail, :category, :status, :delivery_fee, :exhibitor_prefecture, :shipping_date, :price, presence: true
   
   validates :category_id, numericality: { other_than: 1 } 
