@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  
   root to: 'items#index'
-  resources :items
-  resources :orders
+  
+  resources :items do
+   resources :orders
+  end
+
   devise_for :users
- 
- 
- 
 end
