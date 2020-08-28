@@ -22,9 +22,19 @@ class ItemsController < ApplicationController
     if @item.save
        redirect_to action: :index
     else
-      render :new
+       render :new
     end  
   end
+
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy 
+       redirect_to action: :index
+    else
+       rander :edit  
+    end
+  end
+
 
   private
   def item_params
