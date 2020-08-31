@@ -49,10 +49,17 @@ RSpec.describe OrderShipping, type: :model do
       @order_shipping.valid?
       expect(@order_shipping.errors.full_messages).to include("Tel code can't be blank")
     end
-    # it 'tel が11桁以下でないと保存できないこと' do
-    #   @order_shipping.tel = '123456789'
-    #   @order_shipping.valid?
-    #   expect(@order_shipping.errors.full_messages).to include("Tel code is invalid")
-    # end
+    it 'tel が11桁以下でないと保存できないこと' do
+      @order_shipping.tel = '123456789'
+      @order_shipping.valid?
+      expect(@order_shipping.errors.full_messages).to include("Tel code is invalid")
+    end
+    it 'tel は "-"があると登録できないこと' do
+      @order_shipping.tel = '123-4567-8910'
+      @order_shipping.valid?
+      expect(@order_shipping.errors.full_messages).to include("Tel no need hyphen(-)")
+    end
+
+
   end
 end
