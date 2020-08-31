@@ -9,31 +9,6 @@ describe User do
       it "nicknameとemail、passwordとpassword_confirmationが存在、ユーザー名に名字名前そのフリガナもあれば登録できる" do
         expect(@user).to be_valid
       end
-      it  "emailに＠が含まれていれば登録できる" do
-        @user.email = "@"
-        expect(@user).to be_valid
-      end
-      it "passwordが6文字以上かつ半角英数字ともに使用していれば登録できる" do
-        @user.password = "123abc"
-        @user.password_confirmation = "123abc"
-        expect(@user).to be_valid
-      end
-      it "ユーザー本名の名字が全角であれば登録できる" do
-        @user.first_name = "フリマ"
-        expect(@user).to be_valid     
-      end
-      it "ユーザー本名の名前が全角であれば登録できる" do
-        @user.first_name = "タロウ"
-        expect(@user).to be_valid
-      end
-      it "ユーザー本名名字のフリガナが全角カタカナであれば登録できる" do
-        @user.first_name = "フリマ"
-        expect(@user).to be_valid
-      end
-      it "ユーザー本名名前のフリガナが全角カタカナであれば登録できる" do
-        @user.first_name = "タロウ"
-        expect(@user).to be_valid
-      end
     end
   end
     context '新規登録がうまくいかないとき' do

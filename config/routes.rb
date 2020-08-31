@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   root to: 'items#index'
   
   resources :items do
-   resources :orders
+    resources :orders
   end
 
+  
   devise_for :users
 end

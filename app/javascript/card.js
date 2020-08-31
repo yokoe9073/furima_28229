@@ -1,21 +1,25 @@
 const pay = () => {
-  Payjp.setPublicKey("pk_test_0325a80cc383413b4c49a689");　// PAY.JPテスト公開鍵
+
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);// PAY.JPテスト公開鍵
+  console.log(process.env.PAYJP_PUBLIC_KEY)
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-
+    console.log(form)
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
 
     const card = {
-      number: formData.get("number"),
-      cvc: formData.get("cvc"),
-      exp_month: formData.get("exp_month"),
-      exp_year: `20${formData.get("exp_year")}`,
+      number: formData.get("order_shipping[number]"),
+      cvc: formData.get("order_shipping[cvc]"),
+      exp_month: formData.get("order_shipping[exp_month]"),
+      exp_year: `20${formData.get("order_shipping[exp_year]")}`,     
     };
-
+    console.log(card)
     Payjp.createToken(card, (status, response) => {
+
       if (status === 200) {
+        alert("カード情報が正しいです");
         const token = response.id;
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} type="hidden" name='token'>`;
@@ -28,7 +32,11 @@ const pay = () => {
 
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
+
       } else {
+        alert("カード情報が正しくありません。");
+        document.getElementById("charge-form").submit();
+        document.getElementById("charge-form").reset();
       }
     });
   });

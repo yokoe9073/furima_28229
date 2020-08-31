@@ -8,9 +8,6 @@ RSpec.describe Item, type: :model do
       it "出品画像、商品名、商品の説明、カテゴリー、商品の状態、配送料の負担、発送元の地域、発送までの日数、販売価格があれば登録できる" do
         expect(item).to be_valid
       end
-      it "商品画像があれば登録できる" do 
-        expect(item).to be_valid
-      end
     end
     context '商品出品がうまくいかないとき' do
       it "出品画像が空だと登録できない" do
@@ -67,6 +64,11 @@ RSpec.describe Item, type: :model do
         @item.price = 100000000
         @item.valid?
         expect(item.errors.full_messages).to include("Price can't be blank")
+      end
+      it '紐づくユーザーが存在しないと保存できないこと' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
       end
     end
   end
