@@ -10,6 +10,11 @@ RSpec.describe OrderShipping, type: :model do
       expect(@order_shipping).to be_valid
     end
     
+    it '建物番号の値が空でも保存できること' do
+      @order_shipping.building = ""
+      expect(@tweet).to be_valid
+    end
+
     it 'カード情報が間違っていたら保存できないこと'
       @order_shipping.token = nil
       @order_shipping.valid?
