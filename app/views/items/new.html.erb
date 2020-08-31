@@ -6,7 +6,6 @@
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item, local: true do |f| %>
-
     <%= render 'shared/error_messages', model: f.object %>  
 
     <%# 出品画像 %>
@@ -76,7 +75,7 @@
         </div>
         <%= f.collection_select(:exhibitor_prefecture_id, ExhibitorPrefecture.all, :id, :name, {}, {class:"select-box", id:"item-exhibitor-prefecture"}) %>
         <div class="weight-bold-text">
-          発送までの日数
+          発送までの日数　
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:shipping_date_id, ShippingDate.all, :id, :name, {}, {class:"select-box", id:"item-shipping-date"}) %>

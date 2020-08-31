@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   
   belongs_to :user
   has_many :comments
-  has_one :buyer
+  has_one :order
   has_one_attached :image 
 
   validates :name, :detail, :category, :status, :delivery_fee, :exhibitor_prefecture, :shipping_date, :price, presence: true

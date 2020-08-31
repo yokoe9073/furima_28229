@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :item do
-    name                    {"product"}
+    name                    {"アイテム"}
+    detail                  {"せつめい"}
     category_id             {2}
     detail_id               {2}
     status_id               {2}
@@ -8,7 +9,6 @@ FactoryBot.define do
     exhibitor_prefecture_id {2}
     shipping_date_id        {2}
     price                   {500}
-    user_id                 {1}
-
+    association :user
   end
 end
