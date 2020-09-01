@@ -10,11 +10,10 @@ RSpec.describe OrderShipping, type: :model do
       expect(@order_shipping).to be_valid
     end
     
-    it '建物番号の値が空でも保存できること' do
+    it 'building は空でも保存できること' do
       @order_shipping.building = ""
-      expect(@tweet).to be_valid
+      expect(@order_shipping).to be_valid
     end
-
     it 'カード情報が間違っていたら保存できないこと'
       @order_shipping.token = nil
       @order_shipping.valid?
@@ -44,10 +43,6 @@ RSpec.describe OrderShipping, type: :model do
       @order_shipping.address = nil
       @order_shipping.valid?
       expect(@order_shipping.errors.full_messages).to include("Address code can't be blank")
-    end
-    it 'building は空でも保存できること' do
-      @order_shipping.building = nil
-      expect(@order_shipping).to be_valid
     end
     it 'tel が空だと保存できないこと' do
       @order_shipping.city = nil
