@@ -12,8 +12,7 @@ class Item < ApplicationRecord
   has_one :order
   has_one_attached :image
 
-  validates :name, :detail, :category, :status, :delivery_fee, :exhibitor_prefecture, :shipping_date, :price, presence: true
-  validates :unless: :was_attached?
+  validates :name, :detail, :category, :status, :delivery_fee, :exhibitor_prefecture, :shipping_date, :price, :image, presence: true
   validates :category_id, numericality: { other_than: 1 }
   validates :status_id, numericality: { other_than: 1 }
   validates :delivery_fee_id, numericality: { other_than: 1 }
@@ -21,7 +20,7 @@ class Item < ApplicationRecord
   validates :shipping_date_id, numericality: { other_than: 1 }
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
 
-  def was_attached?
-    self.image.attached?
-  end
+  # def was_attached?
+  #   self.image.attached?
+  # end
 end
