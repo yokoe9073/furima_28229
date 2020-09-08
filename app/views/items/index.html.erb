@@ -152,8 +152,6 @@
       </li>
     <% end %>  
     <% if @items.nil? %>
-      <%# 商品がない場合のダミー %>
-      <%# 商品がある場合は表示されないようにしましょう %>
         <li class='list'>
           <%= link_to '#' do %>
             <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %> 
@@ -176,11 +174,12 @@
   </div>
   <%# //商品一覧 %>
 </div>
-<%=link_to new_item_path do %>
+
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
+  <%=link_to new_item_path do%>
     <%=image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  <% end %>
 </div>
-<%end%>
 
-<%= render "shared/footer" %> 
+<%= render "shared/footer" %>  

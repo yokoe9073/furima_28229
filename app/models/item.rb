@@ -12,15 +12,14 @@ class Item < ApplicationRecord
   has_one :order
   has_one_attached :image
 
-  validates :name, :detail, :category, :status, :delivery_fee, :exhibitor_prefecture, :shipping_date, :price, :image, presence: true
-  validates :category_id, numericality: { other_than: 1 }
-  validates :status_id, numericality: { other_than: 1 }
-  validates :delivery_fee_id, numericality: { other_than: 1 }
-  validates :exhibitor_prefecture_id, numericality: { other_than: 1 }
-  validates :shipping_date_id, numericality: { other_than: 1 }
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
+  validates :name, :detail, :category, :status, :delivery_fee, :exhibitor_prefecture, :shipping_date, :price, presence: true
+  validates :category_id, numericality: { other_than: 1, message: 'を選択してください' }
+  validates :image, presence: {message: 'を選択してください'}
+  validates :status_id, numericality: { other_than: 1, message: 'を選択してください' }
+  validates :delivery_fee_id, numericality: { other_than: 1, message: 'を選択してください' }
+  validates :exhibitor_prefecture_id, numericality: { other_than: 1, message: 'を選択してください' }
+  validates :shipping_date_id, numericality: { other_than: 1, message: 'を選択してください' }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は300~9,999,999の間で入力してください' }
+  validates :price, presence: { message: 'を入力してください' }
 
-  # def was_attached?
-  #   self.image.attached?
-  # end
 end

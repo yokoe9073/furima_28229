@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
 
   def index
@@ -7,6 +8,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = OrderShipping.new(order_params)
+    
     if @order.valid?
       pay_item
       @order.save
